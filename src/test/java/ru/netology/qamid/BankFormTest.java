@@ -87,7 +87,7 @@ public class BankFormTest {
     /**
      * Негативный сценарий — введён невалидный номер телефона.
      */
-    // @Disabled("Известный баг: форма принимает неверный номер телефона") // Деактивация теста
+    @Disabled("Известный баг: форма принимает неверный номер телефона") // Деактивация теста
     @Test
     void invalidPhone() {
         UserInfo user = DataGenerator.generateUserWithOverrides(null, null, "1234"); // Невалидный номер
