@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.netology'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+// Настройки компиляции
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+
+    // Selenide
+    testImplementation 'com.codeborne:selenide:6.19.1'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // JavaFaker (генератор данных)
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+}
+
+// Настройки для задачи test
+tasks.test {
+    useJUnitPlatform()
+
+    // Прокидываем системные свойства, например, для запуска в headless-режиме
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless', 'false')
+    systemProperty 'chromeoptions.prefs', System.getProperty('chromeoptions.prefs', 'profile.password_manager_leak_detection=false')
+}
