@@ -5,13 +5,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.qamid.DataGenerator.UserInfo;
-
+import org.junit.jupiter.api.Disabled;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-//java -jar ./artifacts/app-ibank.jar &
 //java -jar ./artifacts/app-replan-delivery.jar &
 
 /**
