@@ -3,6 +3,7 @@ package ru.netology.qamid;
 import com.github.javafaker.Faker;
 import com.google.gson.*;
 import lombok.Getter;
+import lombok.Value;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -15,7 +16,8 @@ import java.util.*;
  */
 public class DataGenerator {
 
-    private DataGenerator() {}
+    private DataGenerator() {
+    }
 
     private static final Faker faker = new Faker(new Locale("ru"));
 
@@ -86,17 +88,13 @@ public class DataGenerator {
 
     /**
      * Класс-контейнер для пользователя.
+     * Используем @Value для неизменяемого класса
      */
-    @Getter
+    @Value
     public static class UserInfo {
-        private final String city;
-        private final String name;
-        private final String phone;
-
-        public UserInfo(String city, String name, String phone) {
-            this.city = city;
-            this.name = name;
-            this.phone = phone;
-        }
+        String city;
+        String name;
+        String phone;
     }
+
 }

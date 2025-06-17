@@ -30,7 +30,6 @@ public class BankFormTest {
     static void setup() {
         Configuration.baseUrl = "http://localhost:9999";
         Configuration.browserSize = "1920x1080";
-        Configuration.headless = true; // false для запуска с окном браузера
         System.setProperty("file.encoding", "UTF-8"); // Принудительно задаем кодировку
     }
 
