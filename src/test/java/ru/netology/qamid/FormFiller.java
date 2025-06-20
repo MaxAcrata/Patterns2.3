@@ -29,15 +29,6 @@ public class FormFiller {
         SelenideElement cityInput = $("[data-test-id='city'] input");
         cityInput.setValue(user.getCity());
 
-        // Пробуем выбрать город из выпадающего списка
-        ElementsCollection menuItems = $$(".menu-item");
-        if (menuItems.findBy(text(user.getCity())).exists()) {
-            menuItems.findBy(text(user.getCity()))
-                    .shouldBe(visible, Duration.ofSeconds(3))
-                    .click();
-        }
-        // Если город не найден — просто продолжаем, валидация сработает при отправке формы
-
         // Дата
         SelenideElement dateInput = $("[data-test-id='date'] input");
         dateInput.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.BACK_SPACE);
